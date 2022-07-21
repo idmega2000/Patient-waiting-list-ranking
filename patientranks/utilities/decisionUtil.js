@@ -41,7 +41,6 @@ function getLittleOrNoBehavioralUsers(data, meanOffer, numberOfTrueRank) {
 
 function addLittleBehavioralToData(trueRankedList, littleBehavioralRankedList, noOfRanked, noOfLittleBehavioral) {
 
-    // console.log('this is the little behevioral data and maybe causing the issue', littleBehavioralRankedList);
     // get random nimbers to use as positorion to  add the 
     const generateRandomSortedIndex = uniqueRandom(0, noOfRanked - 1, noOfLittleBehavioral);
     const generateRandomUnSortedIndex = uniqueRandom(0, littleBehavioralRankedList.length, noOfLittleBehavioral);

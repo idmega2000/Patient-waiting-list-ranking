@@ -1,0 +1,25 @@
+{
+  "name": "patientranks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "export NODE_ENV=test && nyc --reporter=text --reporter=lcov mocha tests/**/*.spec.js --timeout=30000 --exit --recursive"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "faker": "^5.5.3",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
+    "sinon": "^14.0.0"
+  },
+  "dependencies": {
+    "geolib": "^3.3.3"
+  },
+  "author": "",
+  "license": "ISC"
+}

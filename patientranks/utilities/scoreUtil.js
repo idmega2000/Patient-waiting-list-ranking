@@ -32,4 +32,4 @@ function getSortedDataWithScore(patientData, statData) {
     }).sort((a, b) => b.score - a.score)
 }
 
-module.exports = { getSortedDataWithScore }
+module.exports = { getSortedDataWithScore, getAgeScore }
