@@ -11,7 +11,11 @@ class PatientService {
 
   /**
    * @description - method to get ranked patient
-   * @returns {object} - object representing response message
+   * @param {number} - longitude the longitude of the fascility
+   * @param {number} - latitude the latitude of the fascility
+   * @param {number} - noOfRankedList the number of ranked list to return
+   * @param {number} - noOfLittleBehavioralList the number of extra less behavioral data to add
+   * @returns {object} - object representing response information
    */
   static async getRankedList(longitude, latitude, noOfRankedList = 8, noOfLittleBehavioralList = 2) {
     // fetch the data from the data list
