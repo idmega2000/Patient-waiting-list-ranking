@@ -1,0 +1,7 @@
+{
+    "watch": ["src", "patientranks"],
+    "ext": "js",
+    "ignore": ["*.test.js"],
+    "delay": "3",
+    "exec": "babel-node src/index.js"
+  }

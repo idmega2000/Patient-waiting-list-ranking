@@ -1,0 +1,20 @@
+paths:
+  /patient:
+    get:
+      tags:
+        - Plan
+      summary: Gets all Plan
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Response Get ranked patient list
+          schema:
+            type: 'object'
+            properties:
+              success:
+                type: 'boolean'
+                example: 'true'
+              message:
+                type: string
+                example: successful
