@@ -46,7 +46,7 @@ describe('API endpoint for Patients', () => {
                     expect(res.body.status).to.eq('error');
                     expect(res.body.message).to.eq(RESPONSE_MESSAGE.VALIDATION_ERROR);
                 }));
-        it('retruns success when currencies are gotten successfully',
+        it('retruns error when noOfLittleBehavioral is passed without noOfRanked',
             () => chai.request(url)
                 .get('/api/v1/patients')
                 .then((res) => {
@@ -55,7 +55,25 @@ describe('API endpoint for Patients', () => {
                     expect(res.body.status).to.eq('error');
                     expect(res.body.message).to.eq(RESPONSE_MESSAGE.VALIDATION_ERROR);
                 }));
-        it('retruns success when currencies are gotten successfully',
+        it('retruns error when noOfLittleBehavioral is greater than 4',
+            () => chai.request(url)
+                .get('/api/v1/patients?longitude=-63.1150&latitude=46.7110&noOfRanked=7&noOfLittleBehavioral=8')
+                .then((res) => {
+                    expect(res).to.have.status(400);
+                    expect(res.body).to.be.an('Object');
+                    expect(res.body.status).to.eq('error');
+                    expect(res.body.message).to.eq(RESPONSE_MESSAGE.VALIDATION_ERROR);
+                }));
+        it('retruns error when noOfRanked is greater than 25',
+            () => chai.request(url)
+                .get('/api/v1/patients?longitude=-63.1150&latitude=46.7110&noOfRanked=30&noOfLittleBehavioral=2')
+                .then((res) => {
+                    expect(res).to.have.status(400);
+                    expect(res.body).to.be.an('Object');
+                    expect(res.body.status).to.eq('error');
+                    expect(res.body.message).to.eq(RESPONSE_MESSAGE.VALIDATION_ERROR);
+                }));
+        it('retruns success when patients are gotten successfully',
             () => chai.request(url)
                 .get('/api/v1/patients?longitude=-63.1150&latitude=46.7110&noOfRanked=7&noOfLittleBehavioral=3')
                 .then((res) => {
@@ -64,7 +82,7 @@ describe('API endpoint for Patients', () => {
                     expect(res.body.status).to.eq('success');
                     expect(res.body.message).to.eq(RESPONSE_MESSAGE.SUCCESSFUL);
                 }));
-        it('retruns success when currencies are gotten successfully',
+        it('retruns success when patients are gotten successfully',
             () => chai.request(url)
                 .get('/api/v1/patients?longitude=-63.1150&latitude=46.7110')
                 .then((res) => {

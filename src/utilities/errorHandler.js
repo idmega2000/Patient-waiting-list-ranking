@@ -40,7 +40,6 @@ export const generalErrorHandler = (err, req, res, next) => {
   }
 
   logger.error(err);
-  console.log('=============================>>>>>>>>>>>>>>>>>.', err);
   return ServerResponse.response(res, {
     message, errors, dateTime, status
   }, statusCode);
