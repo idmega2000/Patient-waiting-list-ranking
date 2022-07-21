@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import chaiHttp from 'chai-http';
 import chai, { expect } from 'chai';
 import sinon from 'sinon';

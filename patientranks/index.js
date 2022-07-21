@@ -13,18 +13,21 @@ const { getSortedDataWithScore } = require('./utilities/scoreUtil')
  */
 function getRankedListData(patientData, fascilityLocation, numberOfTrueRank, noOfLittleBehavioral) {
 
-    const { latitude, longitude} = fascilityLocation;
+    // get the longitiude and latitude
+    const { latitude, longitude } = fascilityLocation;
 
-    const {dataWithDistance, maxAcceptedOffer, maxCancelledOffer, maxAverageReplyTime, maxAverageDistance, meanOffer } = getStatData(patientData, longitude, latitude);
-    const statData = {maxAcceptedOffer, maxCancelledOffer, maxAverageReplyTime, maxAverageDistance, };
+    // get the statistics information that allow to calculate the different percentages of the patient
+    const statData = getStatData(patientData, longitude, latitude);
+    const { dataWithDistance, meanOffer } = statData;
     const dataWithScore = getSortedDataWithScore(dataWithDistance, statData);
 
-
+    // add rank to the specified rankes amount(default to 10)
     const trueRankedList = dataWithScore.slice(0, numberOfTrueRank).map((eachData, index) => ({
         ...eachData,
         rank: index + 1
     }));
 
+    // if there is need to add the no to little behavioral data 
     if (noOfLittleBehavioral) {
         const littleBehaviorUserList = getLittleOrNoBehavioralUsers(dataWithScore, meanOffer, trueRankedList.length);
         return addLittleBehavioralToData(trueRankedList, littleBehaviorUserList, numberOfTrueRank, Number(noOfLittleBehavioral));
