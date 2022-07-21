@@ -58,7 +58,7 @@ To setup project
 ## Implementation decisions
 - The default implementation take 2 less behavioral data of and add to the list. Therefore the front desk officer would get a patient ranked on 1 to 8 and two other less behavioral patient added.
 - The ranked and non-ranked(less behavioral patient) are randomized with the less-behavioral data not having the ranks
-- Also the number of ranked and non-ranked data needed by the user(front desk officer) can be specified
+- Also the number of ranked and non-ranked data needed by the user(front desk officer) can be specified(check the swagger documentation url)
 - Much attentition is taken to reduce the amout of loop that needs to be done in the process
 
 ## Recommendation
